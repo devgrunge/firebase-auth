@@ -1,24 +1,36 @@
 import React from "react";
 import { AreaHeader } from './styled';
+import { Link } from 'react-router-dom';
 
 function Header() {
     return (
         < AreaHeader >
             <div className="container">
                 <div className="logo">
-                    firebase-auth
+                    <Link to="/">
+                        firebase-auth
+                    </Link>
                 </div>
-            </div>
             <nav>
                 <ul>
                     <li>
-                        Configurações
+                        <Link to="/">
+                            Inicio
+                        </Link>
                     </li>
                     <li>
-                        Configurações
+                        <Link to="/config">
+                            Configurações
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/logout">
+                            Sair
+                        </Link>
                     </li>
                 </ul>
             </nav>
+            </div>
         </ AreaHeader >
     )
 }

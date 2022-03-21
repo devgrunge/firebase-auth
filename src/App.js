@@ -10,10 +10,21 @@ function App() {
 
   const [user, setUser] = useState(null);
 
-  if( user === null ){
-    return(
-      <Login/>
-    )
+  const actionLoginDataGoogle = async (u) => {
+    let newUser = {
+      id: u.uid,
+      name: u.displayName,
+      avatar: u.photoURL
+    }
+
+    setUser(newUser);
+
+  }
+
+  if (user === null) {
+    return (
+      <Login onReciveGoogle={actionLoginDataGoogle} />
+    );
   }
 
 

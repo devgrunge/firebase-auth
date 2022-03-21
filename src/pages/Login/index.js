@@ -2,15 +2,24 @@ import React from "react";
 import { AreaLogin } from "./styled";
 import { BrowserRouter, Switch, Link, Route } from "react-router-dom";
 import { BtnDefaultIcons, BtnDefault } from "../../components/styled";
+import Api from "../../Api";
+//import firebase from "../../firebaseConfig";
+
+export default ({ actionLoginDataGoogle }) => {
+
+    const actionLoginGoogle = async () => {
+        let result = await Api.googleLogIn();
+
+        if (result) {
+            actionLoginDataGoogle(result.user);
+        } else {
+            alert("Usuário ou senha inválidos")
+        }
+    }
 
 
 
-
-export default () => {
     return (
-
-
-
         <BrowserRouter>
             <Switch>
                 <Route exact path="/register">
@@ -53,7 +62,7 @@ export default () => {
                         <BtnDefaultIcons>
                             Fazer Login com Facebook
                         </BtnDefaultIcons>
-                        <BtnDefaultIcons>
+                        <BtnDefaultIcons onClick={actionLoginGoogle}>
                             Fazer Login o Google
                         </BtnDefaultIcons>
 

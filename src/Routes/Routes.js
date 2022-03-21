@@ -8,10 +8,10 @@ export default () => {
     return (
         <Switch>
             <Route exact path="/">
-                <Home/>
+                <Home />
             </Route>
             <Route exact path="/config">
-                <Config/>
+                <Config />
             </Route>
             <Route exact path="/sobre">
                 Sobre
